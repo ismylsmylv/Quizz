@@ -9,6 +9,7 @@ import "./style.scss";
 function Quiz() {
   const [countdown, setCountdown] = useState(10);
   const [questionCount, setQuestionCount] = useState(0);
+  const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
   const navigate = useNavigate();
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
@@ -43,7 +44,7 @@ function Quiz() {
           return prevCount; // No increment needed, we've reached the limit
         }
       });
-    }, 900000);
+    }, 10000);
 
     return () => clearInterval(questionInterval); // Cleanup interval on component unmount
   }, [selectedQuiz]);
@@ -56,14 +57,12 @@ function Quiz() {
             Question {questionCount + 1} of {selectedQuiz?.length}
           </div>
 
-          {countdown && (
-            <div id="countdown">
-              <div id="countdown-number">{countdown}</div>
-              <svg>
-                <circle r="18" cx="20" cy="20"></circle>
-              </svg>
-            </div>
-          )}
+          <div id="countdown">
+            <div id="countdown-number">{countdown}</div>
+            <svg>
+              <circle r="18" cx="20" cy="20"></circle>
+            </svg>
+          </div>
         </div>
         <div className="form">
           <div className="question">
@@ -81,6 +80,7 @@ function Quiz() {
                         : "answer"
                     }
                     onClick={() => {
+                      sethasAnswerSelected(true);
                       dispatch(selectAnswer(answer));
                     }}
                   >
@@ -90,13 +90,19 @@ function Quiz() {
               }
             )}
           <button
+            disabled={!hasAnswerSelected}
             className="next"
             onClick={() => {
               dispatch(addAnswer());
               setCountdown(10);
-              questionCount < 9
-                ? setQuestionCount(questionCount + 1)
-                : navigate("/result");
+
+              if (questionCount < 9) {
+                clearInterval(10);
+                sethasAnswerSelected(false);
+                setQuestionCount(questionCount + 1);
+              } else {
+                navigate("/result");
+              }
             }}
           >
             next

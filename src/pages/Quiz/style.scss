@@ -112,6 +112,11 @@
                 text-transform: capitalize;
                 text-align: center;
                 margin: 20px 0;
+
+                &:disabled {
+                    opacity: 0.8;
+                    cursor: not-allowed;
+                }
             }
 
             .active {

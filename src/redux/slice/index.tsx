@@ -29,6 +29,12 @@ export const quizSlice = createSlice({
     addAnswer: (state) => {
       state.answers = [...state.answers, state.selectedAnswer];
     },
+    clearAnswers: (state) => {
+      state.answers = [];
+    },
+    clearSelectAnswer: (state) => {
+      state.selectedAnswer = {};
+    },
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -42,6 +48,7 @@ export const quizSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { selectAnswer, addAnswer } = quizSlice.actions;
+export const { selectAnswer, addAnswer, clearAnswers, clearSelectAnswer } =
+  quizSlice.actions;
 
 export default quizSlice.reducer;

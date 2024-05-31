@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.scss";
 import { IoIosTrophy } from "react-icons/io";
 import { useSelector } from "react-redux";
-
+import { IoIosCloseCircle } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { RootState } from "../../redux/store";
 type Props = {};
@@ -20,8 +20,16 @@ function Result({}: Props) {
       <div className="messageBox">
         <div className="head">Results</div>
         <div className="trophy">
-          <IoIosTrophy color="#F3BC5C" size={50} />
-          <div className="text">you won!</div>
+          {result > 5 ? (
+            <IoIosTrophy color="#F3BC5C" size={50} />
+          ) : (
+            <IoIosCloseCircle color="red" size={50} />
+          )}
+
+          <div className="text">
+            you
+            {result > 5 ? " won" : " lost"}!
+          </div>
         </div>
         <div className="points">{result} points</div>
         <div className="controls">

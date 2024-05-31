@@ -1,27 +1,41 @@
 .Help {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 50px;
 
-    .help {
-        padding: 20px;
-        background-color: white;
-        border: 2px solid #31304D;
-        border-radius: 50%;
+    margin-bottom: 30px;
+
+    .helps {
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: 200ms linear;
-        cursor: pointer;
+        gap: 20px;
 
-        &:hover {
-            background-color: #31304D;
+        .help {
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #31304D;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 200ms linear;
+            cursor: pointer;
 
-            svg {
-                color: white !important;
+            &:hover {
+                background-color: #31304D;
+
+
+                svg {
+                    color: white !important;
+                }
             }
         }
+    }
+
+    .info {
+        margin: 10px auto;
+        color: #31304D;
+        text-align: center;
+        height: 15px;
+
+        &:hover {}
     }
 }

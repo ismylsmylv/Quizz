@@ -43,7 +43,7 @@ function Quiz() {
           return prevCount; // No increment needed, we've reached the limit
         }
       });
-    }, 10000);
+    }, 900000);
 
     return () => clearInterval(questionInterval); // Cleanup interval on component unmount
   }, [selectedQuiz]);
@@ -56,12 +56,14 @@ function Quiz() {
             Question {questionCount + 1} of {selectedQuiz?.length}
           </div>
 
-          <div id="countdown">
-            <div id="countdown-number">{countdown}</div>
-            <svg>
-              <circle r="18" cx="20" cy="20"></circle>
-            </svg>
-          </div>
+          {countdown && (
+            <div id="countdown">
+              <div id="countdown-number">{countdown}</div>
+              <svg>
+                <circle r="18" cx="20" cy="20"></circle>
+              </svg>
+            </div>
+          )}
         </div>
         <div className="form">
           <div className="question">

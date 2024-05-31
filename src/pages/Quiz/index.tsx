@@ -108,7 +108,7 @@ function Quiz() {
                 setQuestionCount(questionCount + 1);
                 setresetAnimation(10);
               } else {
-                navigate("/result");
+                navigate(`/result/${category}`);
               }
             }}
           >

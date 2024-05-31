@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./style.scss";
 import { IoIosTrophy } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +11,7 @@ type Props = {};
 function Result({}: Props) {
   const navigate = useNavigate();
   const answers = useSelector((state: RootState) => state.quiz.answers);
+  const { category } = useParams();
   const [result, setresult] = useState(0);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -49,7 +50,7 @@ function Result({}: Props) {
             onClick={() => {
               dispatch(clearAnswers());
               dispatch(clearSelectAnswer());
-              navigate("/quiz/math");
+              navigate(`/quiz/${category}`);
             }}
           >
             play again

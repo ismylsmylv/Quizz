@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+}
+button {
+  cursor: pointer;
+}
+.app {
+  height: 95vh;
+  max-height: 900px;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow: hidden;
+}
+body {
+  background-color: #282828;
+}

@@ -1,0 +1,1276 @@
+{
+    "quiz": {
+        "sports": [
+            {
+                "question": "Which country won the FIFA World Cup in 2018?",
+                "answers": [
+                    {
+                        "text": "Brazil",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Germany",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "France",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Argentina",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "How many players are there in a basketball team?",
+                "answers": [
+                    {
+                        "text": "5",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "6",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "7",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "8",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "In which sport would you perform a slam dunk?",
+                "answers": [
+                    {
+                        "text": "Soccer",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Tennis",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Basketball",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Volleyball",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which tennis player has won the most Grand Slam titles?",
+                "answers": [
+                    {
+                        "text": "Rafael Nadal",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Novak Djokovic",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Roger Federer",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Pete Sampras",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Where were the first modern Olympic Games held?",
+                "answers": [
+                    {
+                        "text": "Paris",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "London",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Athens",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Rome",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which country has won the most Cricket World Cups?",
+                "answers": [
+                    {
+                        "text": "India",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "West Indies",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Australia",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "England",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "In which sport is the term 'love' used?",
+                "answers": [
+                    {
+                        "text": "Golf",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Badminton",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Tennis",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Basketball",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Who is known as the 'Lightning Bolt' in athletics?",
+                "answers": [
+                    {
+                        "text": "Carl Lewis",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Michael Johnson",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Usain Bolt",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Yohan Blake",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which country won the first Rugby World Cup?",
+                "answers": [
+                    {
+                        "text": "New Zealand",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Australia",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "England",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "South Africa",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "In which sport is the Stanley Cup awarded?",
+                "answers": [
+                    {
+                        "text": "Baseball",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Basketball",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Ice Hockey",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Soccer",
+                        "isCorrect": false
+                    }
+                ]
+            }
+        ],
+        "chemistry": [
+            {
+                "question": "What is the chemical symbol for gold?",
+                "answers": [
+                    {
+                        "text": "Au",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Ag",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Fe",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Pb",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the most abundant gas in the Earth's atmosphere?",
+                "answers": [
+                    {
+                        "text": "Oxygen",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Carbon Dioxide",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Nitrogen",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Hydrogen",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the pH value of pure water?",
+                "answers": [
+                    {
+                        "text": "7",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "5",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "9",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "3",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which element is known as the 'King of Chemicals'?",
+                "answers": [
+                    {
+                        "text": "Sulfuric Acid",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Nitric Acid",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Hydrochloric Acid",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Acetic Acid",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the main component of natural gas?",
+                "answers": [
+                    {
+                        "text": "Propane",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Butane",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Methane",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Ethanol",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the chemical formula for table salt?",
+                "answers": [
+                    {
+                        "text": "NaCl",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "KCl",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "CaCl2",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "MgCl2",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which element has the highest melting point?",
+                "answers": [
+                    {
+                        "text": "Tungsten",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Iron",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Gold",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Platinum",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the chemical symbol for sodium?",
+                "answers": [
+                    {
+                        "text": "Na",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Sn",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "S",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Si",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which gas is produced when a metal reacts with an acid?",
+                "answers": [
+                    {
+                        "text": "Oxygen",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Hydrogen",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Carbon Dioxide",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Nitrogen",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which element is a liquid at room temperature?",
+                "answers": [
+                    {
+                        "text": "Mercury",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Iron",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Sodium",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Aluminum",
+                        "isCorrect": false
+                    }
+                ]
+            }
+        ],
+        "economics": [
+            {
+                "question": "What is the term for a market structure with a single seller?",
+                "answers": [
+                    {
+                        "text": "Monopoly",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Oligopoly",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Perfect Competition",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Monopolistic Competition",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What does GDP stand for?",
+                "answers": [
+                    {
+                        "text": "Gross Domestic Product",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Gross Development Product",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "General Domestic Product",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "General Development Product",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the primary focus of microeconomics?",
+                "answers": [
+                    {
+                        "text": "National Economy",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "International Trade",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Individual and Business Decisions",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Government Policy",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which economist is known for the concept of 'invisible hand'?",
+                "answers": [
+                    {
+                        "text": "John Maynard Keynes",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Milton Friedman",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Adam Smith",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "David Ricardo",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is inflation?",
+                "answers": [
+                    {
+                        "text": "A decrease in the general price level",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "An increase in the general price level",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "A decrease in the supply of money",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "An increase in the supply of money",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the term for a situation where demand exceeds supply?",
+                "answers": [
+                    {
+                        "text": "Surplus",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Equilibrium",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Shortage",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Deflation",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which policy involves changing tax rates and government spending?",
+                "answers": [
+                    {
+                        "text": "Monetary Policy",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Fiscal Policy",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Trade Policy",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Industrial Policy",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the opportunity cost?",
+                "answers": [
+                    {
+                        "text": "The total cost of producing a good",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "The value of the next best alternative forgone",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "The difference between fixed and variable costs",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "The cost of inputs used in production",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which term describes a decline in the general level of prices?",
+                "answers": [
+                    {
+                        "text": "Inflation",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Deflation",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Stagflation",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Hyperinflation",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Who is considered the father of modern economics?",
+                "answers": [
+                    {
+                        "text": "John Maynard Keynes",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Adam Smith",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "David Ricardo",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Milton Friedman",
+                        "isCorrect": false
+                    }
+                ]
+            }
+        ],
+        "astronomy": [
+            {
+                "question": "What is the largest planet in our Solar System?",
+                "answers": [
+                    {
+                        "text": "Earth",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Mars",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Jupiter",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Saturn",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What type of galaxy is the Milky Way?",
+                "answers": [
+                    {
+                        "text": "Elliptical",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Irregular",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Spiral",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Lenticular",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the name of the first artificial satellite launched into space?",
+                "answers": [
+                    {
+                        "text": "Apollo 11",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Sputnik 1",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Explorer 1",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Voyager 1",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the hottest planet in our Solar System?",
+                "answers": [
+                    {
+                        "text": "Mercury",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Venus",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Mars",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Jupiter",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the name of the galaxy closest to the Milky Way?",
+                "answers": [
+                    {
+                        "text": "Andromeda",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Triangulum",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Large Magellanic Cloud",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Small Magellanic Cloud",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the name of the first man to walk on the moon?",
+                "answers": [
+                    {
+                        "text": "Buzz Aldrin",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Yuri Gagarin",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Neil Armstrong",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Michael Collins",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the most common type of star in the Milky Way?",
+                "answers": [
+                    {
+                        "text": "Red Dwarf",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Blue Giant",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Yellow Dwarf",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "White Dwarf",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the name of the largest moon of Saturn?",
+                "answers": [
+                    {
+                        "text": "Europa",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Titan",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Ganymede",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Callisto",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the term for a star that suddenly increases greatly in brightness?",
+                "answers": [
+                    {
+                        "text": "Supernova",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Nebula",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Black Hole",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Quasar",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the closest star to Earth?",
+                "answers": [
+                    {
+                        "text": "Proxima Centauri",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Sirius",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Alpha Centauri",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Betelgeuse",
+                        "isCorrect": false
+                    }
+                ]
+            }
+        ],
+        "math": [
+            {
+                "question": "What is the value of π (pi) to two decimal places?",
+                "answers": [
+                    {
+                        "text": "3.12",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "3.14",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "3.16",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "3.18",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the square root of 64?",
+                "answers": [
+                    {
+                        "text": "6",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "7",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "8",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "9",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is 7 factorial (7!)?",
+                "answers": [
+                    {
+                        "text": "720",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "5040",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "40320",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "362880",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the sum of the interior angles of a triangle?",
+                "answers": [
+                    {
+                        "text": "90 degrees",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "180 degrees",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "270 degrees",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "360 degrees",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the derivative of x^2?",
+                "answers": [
+                    {
+                        "text": "2x",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "x",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "x^2",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "2",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the value of the Golden Ratio (φ) to two decimal places?",
+                "answers": [
+                    {
+                        "text": "1.61",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "1.62",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "1.71",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "1.72",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the smallest prime number?",
+                "answers": [
+                    {
+                        "text": "0",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "1",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "2",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "3",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the value of the Euler's number (e) to two decimal places?",
+                "answers": [
+                    {
+                        "text": "2.71",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "2.72",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "2.73",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "2.74",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the perimeter of a circle called?",
+                "answers": [
+                    {
+                        "text": "Diameter",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Radius",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Circumference",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Arc",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the sum of the first 10 positive integers?",
+                "answers": [
+                    {
+                        "text": "45",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "55",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "65",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "75",
+                        "isCorrect": false
+                    }
+                ]
+            }
+        ],
+        "architecture": [
+            {
+                "question": "Who designed the Guggenheim Museum in New York City?",
+                "answers": [
+                    {
+                        "text": "Frank Lloyd Wright",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Le Corbusier",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Ludwig Mies van der Rohe",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Louis Sullivan",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the architectural style of the Notre-Dame Cathedral in Paris?",
+                "answers": [
+                    {
+                        "text": "Baroque",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Gothic",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Renaissance",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Romanesque",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which architect is known for the design of the Sydney Opera House?",
+                "answers": [
+                    {
+                        "text": "Frank Gehry",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Jørn Utzon",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Santiago Calatrava",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Renzo Piano",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the primary building material of the Pantheon in Rome?",
+                "answers": [
+                    {
+                        "text": "Brick",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Marble",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Concrete",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Granite",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the tallest building in the world as of 2024?",
+                "answers": [
+                    {
+                        "text": "Shanghai Tower",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Abraj Al Bait",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Burj Khalifa",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Taipei 101",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Who is known as the 'Father of Skyscrapers'?",
+                "answers": [
+                    {
+                        "text": "Frank Lloyd Wright",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Louis Sullivan",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Le Corbusier",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Walter Gropius",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Which famous architect designed the Fallingwater house?",
+                "answers": [
+                    {
+                        "text": "Frank Lloyd Wright",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Philip Johnson",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Richard Neutra",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Eero Saarinen",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What architectural style is the Empire State Building designed in?",
+                "answers": [
+                    {
+                        "text": "Art Deco",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Modernist",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Neoclassical",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Brutalist",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "Who designed the glass pyramid at the Louvre in Paris?",
+                "answers": [
+                    {
+                        "text": "I. M. Pei",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Zaha Hadid",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Norman Foster",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Rem Koolhaas",
+                        "isCorrect": false
+                    }
+                ]
+            },
+            {
+                "question": "What is the name of the style of architecture that emphasizes function and simplicity?",
+                "answers": [
+                    {
+                        "text": "Baroque",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Gothic",
+                        "isCorrect": false
+                    },
+                    {
+                        "text": "Modernist",
+                        "isCorrect": true
+                    },
+                    {
+                        "text": "Rococo",
+                        "isCorrect": false
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,123 @@
+.Quiz {
+    padding: 30px;
+    background-color: #F0ECE5;
+    // margin: 0 auto;
+    // max-width: 480px;
+    border-radius: 20px;
+    // margin-top: 10px;
+    // height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .content {
+        width: 100%;
+
+        .infos {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            margin: 20px 0;
+
+            .info {
+                color: #31304D;
+                font-weight: 500;
+            }
+
+            #countdown {
+                position: relative;
+                // margin: auto;
+                // margin-top: 100px;
+                height: 40px;
+                width: 40px;
+                text-align: center;
+                filter: invert(1) opacity(0.6);
+            }
+
+            #countdown-number {
+                color: white;
+                display: inline-block;
+                line-height: 40px;
+            }
+
+            svg {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40px;
+                height: 40px;
+                transform: rotateY(-180deg) rotateZ(-90deg);
+            }
+
+            svg circle {
+                stroke-dasharray: 113px;
+                stroke-dashoffset: 0px;
+                stroke-linecap: round;
+                stroke-width: 2px;
+                stroke: white;
+                fill: none;
+                animation: countdown 10s linear infinite forwards;
+            }
+
+            @keyframes countdown {
+                from {
+                    stroke-dashoffset: 0px;
+                }
+
+                to {
+                    stroke-dashoffset: 113px;
+                }
+            }
+        }
+
+        .form {
+            display: flex;
+            align-items: start;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+
+            .question {
+                color: #31304D;
+                font-size: 25px;
+                font-weight: 900;
+                margin-bottom: 20px;
+            }
+
+            button {
+                width: 100%;
+                border: none;
+                border-radius: 10px;
+                padding: 20px;
+                text-align: left;
+                font-weight: 500;
+            }
+
+            .answer {
+                background-color: white;
+                margin-bottom: 20px;
+                color: #31304D;
+                transition: 200ms linear;
+                border: 1px solid transparent;
+
+                &:hover {
+                    background-color: #DDD9D6;
+                }
+            }
+
+            .next {
+                background-color: #31304D;
+                color: white;
+                text-transform: capitalize;
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .active {
+                background-color: #DDD9D6;
+                border: 1px solid #31304D;
+            }
+        }
+    }
+}

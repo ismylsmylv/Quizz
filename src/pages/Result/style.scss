@@ -1,0 +1,66 @@
+.Result {
+    background-color: #31304D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .messageBox {
+        background-color: #F3F0EA;
+        border-radius: 10px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 20px;
+
+        .head {
+
+            text-transform: uppercase;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 22px;
+            text-align: center;
+            color: #31304D;
+        }
+
+        .trophy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-direction: column;
+
+            .text {
+                color: #31304D;
+                text-transform: capitalize;
+                font-weight: 700;
+            }
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            button {
+                font-weight: 500;
+                border: none;
+                border-radius: 10px;
+                padding: 10px 20px;
+                text-transform: capitalize;
+            }
+
+            .againBtn {
+                background-color: #31304D;
+                color: #F3F0EA;
+            }
+
+            .homeBtn {
+                background-color: white;
+                color: #31304D;
+            }
+        }
+    }
+}

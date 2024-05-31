@@ -11,6 +11,7 @@ function Quiz() {
   const [questionCount, setQuestionCount] = useState(0);
   const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
   const navigate = useNavigate();
+  const [resetAnimation, setresetAnimation] = useState(10);
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
   const selectedAnswer = useSelector(
@@ -40,13 +41,13 @@ function Quiz() {
         } else {
           // alert("time out");
           navigate("/result");
-          clearInterval(questionInterval); // Stop the interval
-          return prevCount; // No increment needed, we've reached the limit
+          clearInterval(questionInterval); // stop the interval
+          return prevCount; // no increment needed, we've reached the limit
         }
       });
     }, 10000);
 
-    return () => clearInterval(questionInterval); // Cleanup interval on component unmount
+    return () => clearInterval(questionInterval); // cleanup interval on component unmount
   }, [selectedQuiz]);
   return (
     <div className="Quiz app">
@@ -59,9 +60,14 @@ function Quiz() {
 
           <div id="countdown">
             <div id="countdown-number">{countdown}</div>
-            {/* <svg>
-              <circle r="18" cx="20" cy="20"></circle>
-            </svg> */}
+            <svg>
+              <circle
+                r="18"
+                cx="20"
+                cy="20"
+                style={{ animationDuration: `${resetAnimation}s` }}
+              ></circle>
+            </svg>
           </div>
         </div>
         <div className="form">
@@ -97,9 +103,10 @@ function Quiz() {
               setCountdown(10);
 
               if (questionCount < 9) {
-                clearInterval(10);
+                clearInterval(0);
                 sethasAnswerSelected(false);
                 setQuestionCount(questionCount + 1);
+                setresetAnimation(10);
               } else {
                 navigate("/result");
               }

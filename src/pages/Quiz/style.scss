@@ -32,14 +32,11 @@
                 height: 40px;
                 width: 40px;
                 text-align: center;
-                border-radius: 50%;
-                border: 2px solid #31304D;
-
-                // filter: invert(1) opacity(0.6);
+                filter: invert(1) opacity(0.6);
             }
 
             #countdown-number {
-                color: #31304D;
+                color: white;
                 display: inline-block;
                 line-height: 40px;
             }
@@ -60,7 +57,8 @@
                 stroke-width: 2px;
                 stroke: white;
                 fill: none;
-                animation: countdown 10s linear infinite forwards;
+                animation: countdown linear infinite forwards;
+                // 10s
             }
 
             @keyframes countdown {

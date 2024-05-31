@@ -59,9 +59,9 @@ function Quiz() {
 
           <div id="countdown">
             <div id="countdown-number">{countdown}</div>
-            <svg>
+            {/* <svg>
               <circle r="18" cx="20" cy="20"></circle>
-            </svg>
+            </svg> */}
           </div>
         </div>
         <div className="form">

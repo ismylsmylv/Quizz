@@ -4,20 +4,20 @@ import { PiMathOperationsFill } from "react-icons/pi";
 import { SlChemistry } from "react-icons/sl";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
-
+const categories = [
+  { name: "sports", icon: <IoTennisballOutline size={30} color="#484742" /> },
+  { name: "chemistry", icon: <SlChemistry size={30} color="#484742" /> },
+  { name: "economics", icon: <IoStatsChart size={30} color="#484742" /> },
+  { name: "astronomy", icon: <IoPlanet size={30} color="#484742" /> },
+  { name: "math", icon: <PiMathOperationsFill size={30} color="#484742" /> },
+  {
+    name: "architecture",
+    icon: <BsBuildingsFill size={30} color="#484742" />,
+  },
+];
 function Categories() {
   const navigate = useNavigate();
-  const categories = [
-    { name: "sports", icon: <IoTennisballOutline size={30} color="#484742" /> },
-    { name: "chemistry", icon: <SlChemistry size={30} color="#484742" /> },
-    { name: "economics", icon: <IoStatsChart size={30} color="#484742" /> },
-    { name: "astronomy", icon: <IoPlanet size={30} color="#484742" /> },
-    { name: "math", icon: <PiMathOperationsFill size={30} color="#484742" /> },
-    {
-      name: "architecture",
-      icon: <BsBuildingsFill size={30} color="#484742" />,
-    },
-  ];
+
   return (
     <div className="Categories">
       <div className="head">
@@ -43,5 +43,5 @@ function Categories() {
     </div>
   );
 }
-
+export { categories };
 export default Categories;

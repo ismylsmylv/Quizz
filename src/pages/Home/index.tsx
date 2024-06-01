@@ -2,16 +2,12 @@ import { useNavigate } from "react-router-dom";
 import Categories from "../../components/categories";
 import GuyImg from "./../../assets/img/guy2.png";
 import "./style.scss";
-
+import { categories } from "../../components/categories";
 function Home() {
   const navigate = useNavigate();
+
   return (
     <div className="home app">
-      {/* <button
-       
-      >
-        Quiz
-      </button> */}
       <div className="logo">Quizz</div>
       <div className="starter">
         <div className="left">
@@ -20,7 +16,9 @@ function Home() {
           <button
             className="start"
             onClick={() => {
-              navigate("/quiz");
+              const random = Math.floor(Math.random() * categories.length);
+              console.log(random, categories[random]);
+              navigate(`/quiz/${categories[random].name}`);
             }}
           >
             start now

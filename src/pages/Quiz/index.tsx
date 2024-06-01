@@ -11,7 +11,6 @@ function Quiz() {
   const [questionCount, setQuestionCount] = useState(0);
   const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
   const navigate = useNavigate();
-  const [resetAnimation, setresetAnimation] = useState(10);
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
   const selectedAnswer = useSelector(
@@ -40,7 +39,7 @@ function Quiz() {
           return prevCount + 1;
         } else {
           // alert("time out");
-          navigate("/result");
+          navigate(`/result/${category}`);
           clearInterval(questionInterval); // stop the interval
           return prevCount; // no increment needed, we've reached the limit
         }
@@ -61,12 +60,7 @@ function Quiz() {
           <div id="countdown">
             <div id="countdown-number">{countdown}</div>
             <svg>
-              <circle
-                r="18"
-                cx="20"
-                cy="20"
-                style={{ animationDuration: `${resetAnimation}s` }}
-              ></circle>
+              <circle r="18" cx="20" cy="20"></circle>
             </svg>
           </div>
         </div>
@@ -81,6 +75,14 @@ function Quiz() {
                   <button
                     key={answer.text}
                     className={
+                      // countdown <= 5 && countdown > 1 && answer.isCorrect
+                      //   ? "answer correct"
+                      //   : countdown <= 3 &&
+                      //     countdown > 0 &&
+                      //     !answer.isCorrect &&
+                      //     selectedAnswer.text == answer.text
+                      //   ? "answer incorrect"
+                      //   :
                       selectedAnswer.text == answer.text
                         ? "answer active"
                         : "answer"
@@ -103,10 +105,9 @@ function Quiz() {
               setCountdown(10);
 
               if (questionCount < 9) {
-                clearInterval(0);
+                clearInterval(10000);
                 sethasAnswerSelected(false);
                 setQuestionCount(questionCount + 1);
-                setresetAnimation(10);
               } else {
                 navigate(`/result/${category}`);
               }

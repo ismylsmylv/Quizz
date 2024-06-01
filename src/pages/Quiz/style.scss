@@ -57,8 +57,8 @@
                 stroke-width: 2px;
                 stroke: white;
                 fill: none;
-                animation: countdown linear infinite forwards;
-                // 10s
+                animation: countdown 10s linear infinite forwards;
+                // 
             }
 
             @keyframes countdown {
@@ -123,6 +123,18 @@
             .active {
                 background-color: #DDD9D6;
                 border: 1px solid #31304D;
+            }
+
+            .correct {
+                background-color: green;
+                border: 1px solid green;
+                color: white;
+            }
+
+            .incorrect {
+                background-color: red;
+                border: 1px solid red;
+                color: white;
             }
         }
     }

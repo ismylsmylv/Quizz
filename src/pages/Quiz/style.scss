@@ -86,6 +86,8 @@
                 margin-bottom: 20px;
             }
 
+            .btns {}
+
             button {
                 width: 100%;
                 border: none;
@@ -93,6 +95,8 @@
                 padding: 20px;
                 text-align: left;
                 font-weight: 500;
+                text-align: center;
+                text-transform: capitalize;
             }
 
             .answer {
@@ -102,6 +106,7 @@
                 transition: 200ms linear;
                 border: 1px solid transparent;
 
+
                 &:hover {
                     background-color: #DDD9D6;
                 }
@@ -110,14 +115,20 @@
             .next {
                 background-color: #31304D;
                 color: white;
-                text-transform: capitalize;
-                text-align: center;
-                margin: 20px 0;
+
+                margin-top: 20px;
+                margin-bottom: 10px;
 
                 &:disabled {
                     opacity: 0.8;
                     cursor: not-allowed;
                 }
+            }
+
+            .previous {
+                margin-bottom: 20px;
+                color: #31304D;
+                background-color: transparent;
             }
 
             .active {

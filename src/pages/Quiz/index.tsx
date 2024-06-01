@@ -98,7 +98,7 @@ function Quiz() {
               }
             )}
           <button
-            disabled={!hasAnswerSelected}
+            // disabled={!hasAnswerSelected}
             className="next"
             onClick={() => {
               dispatch(addAnswer());
@@ -114,6 +114,20 @@ function Quiz() {
             }}
           >
             next
+          </button>
+
+          <button
+            className="previous"
+            onClick={() => {
+              dispatch(addAnswer());
+              setCountdown(10);
+
+              if (questionCount > 0) {
+                setQuestionCount(questionCount - 1);
+              }
+            }}
+          >
+            {questionCount > 0 && "previous"}
           </button>
         </div>
       </div>

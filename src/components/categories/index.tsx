@@ -33,6 +33,7 @@ function Categories() {
                 console.log(category.name);
                 navigate("/quiz/" + category.name);
               }}
+              key={category.name}
             >
               {category.icon}
               <div className="name">{category.name}</div>

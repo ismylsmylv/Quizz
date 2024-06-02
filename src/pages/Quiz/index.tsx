@@ -1,53 +1,37 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Help from "../../components/help";
 import { addAnswer, fetchQuiz, selectAnswer } from "../../redux/slice";
-import { RootState } from "../../redux/store";
+import { AppDispatch, RootState } from "../../redux/store";
 import "./style.scss";
 
 function Quiz() {
-  const [countdown, setCountdown] = useState(10);
+  const [countdown, setCountdown] = useState(100);
   const [questionCount, setQuestionCount] = useState(0);
-  const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
+  // const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
   const navigate = useNavigate();
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
-  const selectedAnswer = useSelector(
-    (state: RootState) => state.quiz.selectedAnswer
+  const selectedAnswer: { text: string } = useSelector(
+    (state: RootState | { text: string } | any) => state.quiz.selectedAnswer
   );
-  const dispatch = useDispatch();
+  const dispatch = useDispatch() as AppDispatch;
 
   useEffect(() => {
     dispatch(fetchQuiz());
-
+    if (countdown <= 0) {
+      navigate(`/result/${category}`);
+    }
     const countdownInterval = setInterval(() => {
-      setCountdown((prevCountdown) =>
-        prevCountdown < 2 ? 10 : prevCountdown - 1
+      setCountdown(
+        (prevCountdown: number) => prevCountdown > 0 && prevCountdown - 1
       );
     }, 1000);
-
     return () => clearInterval(countdownInterval);
-  }, [dispatch]);
+  }, [dispatch, countdown]);
 
   const selectedQuiz = useMemo(() => quiz?.[category], [quiz, category]);
-
-  useEffect(() => {
-    const questionInterval = setInterval(() => {
-      setQuestionCount((prevCount) => {
-        if (prevCount < selectedQuiz?.length - 1) {
-          return prevCount + 1;
-        } else {
-          // alert("time out");
-          navigate(`/result/${category}`);
-          clearInterval(questionInterval); // stop the interval
-          return prevCount; // no increment needed, we've reached the limit
-        }
-      });
-    }, 10000);
-
-    return () => clearInterval(questionInterval); // cleanup interval on component unmount
-  }, [selectedQuiz]);
   return (
     <div className="Quiz app">
       <Help />
@@ -88,7 +72,7 @@ function Quiz() {
                         : "answer"
                     }
                     onClick={() => {
-                      sethasAnswerSelected(true);
+                      // sethasAnswerSelected(true);
                       dispatch(selectAnswer(answer));
                     }}
                   >
@@ -102,11 +86,9 @@ function Quiz() {
             className="next"
             onClick={() => {
               dispatch(addAnswer());
-              setCountdown(10);
 
               if (questionCount < 9) {
-                clearInterval(10000);
-                sethasAnswerSelected(false);
+                // sethasAnswerSelected(false);
                 setQuestionCount(questionCount + 1);
               } else {
                 navigate(`/result/${category}`);
@@ -120,8 +102,6 @@ function Quiz() {
             className="previous"
             onClick={() => {
               dispatch(addAnswer());
-              setCountdown(10);
-
               if (questionCount > 0) {
                 setQuestionCount(questionCount - 1);
               }

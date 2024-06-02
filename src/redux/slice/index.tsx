@@ -11,12 +11,16 @@ export interface QuizState {
   quiz: object[];
   answers: object[];
   selectedAnswer: object;
+  help: string;
+  prevHelp: string[];
 }
 
 const initialState: QuizState = {
   quiz: [],
   answers: [],
   selectedAnswer: {},
+  help: "",
+  prevHelp: [],
 };
 
 export const quizSlice = createSlice({
@@ -35,6 +39,12 @@ export const quizSlice = createSlice({
     clearSelectAnswer: (state) => {
       state.selectedAnswer = {};
     },
+    selectHelp: (state, action: PayloadAction<string>) => {
+      state.help = action.payload;
+    },
+    selectedHelp: (state, action: PayloadAction<string>) => {
+      state.prevHelp = [...state.prevHelp, action.payload];
+    },
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -48,7 +58,13 @@ export const quizSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { selectAnswer, addAnswer, clearAnswers, clearSelectAnswer } =
-  quizSlice.actions;
+export const {
+  selectAnswer,
+  addAnswer,
+  clearAnswers,
+  clearSelectAnswer,
+  selectHelp,
+  selectedHelp,
+} = quizSlice.actions;
 
 export default quizSlice.reducer;

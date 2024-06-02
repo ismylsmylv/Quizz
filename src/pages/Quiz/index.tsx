@@ -95,7 +95,7 @@ function Quiz() {
               }
             }}
           >
-            next
+            {questionCount == 9 ? "complete" : "next"}
           </button>
 
           <button

@@ -2,10 +2,14 @@ import { FaBalanceScaleLeft } from "react-icons/fa";
 import { IoCallSharp, IoPeopleSharp } from "react-icons/io5";
 import "./style.scss";
 import { useState } from "react";
+import { selectHelp, selectedHelp } from "../../redux/slice";
+import { useDispatch, useSelector } from "react-redux";
 type Props = {};
 
 function Help({}: Props) {
   const [helpType, sethelpType] = useState("");
+  const dispatch = useDispatch();
+  const prevHelp = useSelector((state) => state.quiz.prevHelp);
   const helps = [
     {
       value: "half",
@@ -28,7 +32,8 @@ function Help({}: Props) {
       <div className="helps">
         {helps.map((help) => {
           return (
-            <div
+            <button
+              disabled={prevHelp.find((elem) => elem == help.value)}
               className="help"
               key={help.value}
               onMouseEnter={() => {
@@ -37,9 +42,13 @@ function Help({}: Props) {
               onMouseLeave={() => {
                 sethelpType("");
               }}
+              onClick={() => {
+                dispatch(selectHelp(help.value));
+                dispatch(selectedHelp(help.value));
+              }}
             >
               {help.icon}
-            </div>
+            </button>
           );
         })}
       </div>

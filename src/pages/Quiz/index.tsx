@@ -9,6 +9,7 @@ import "./style.scss";
 function Quiz() {
   const [countdown, setCountdown] = useState(100);
   const [questionCount, setQuestionCount] = useState(0);
+  const [publicPercent, setpublicPercent] = useState([]);
   // const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
   const navigate = useNavigate();
   const { category } = useParams();
@@ -17,7 +18,28 @@ function Quiz() {
     (state: RootState | { text: string } | any) => state.quiz.selectedAnswer
   );
   const dispatch = useDispatch() as AppDispatch;
+  function shuffle(array: number[]) {
+    let currentIndex = array.length;
 
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+      // Pick a remaining element...
+      const randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+  }
+  function publicDecide() {
+    const percents = [40, 30, 20, 10];
+    shuffle(percents);
+    setpublicPercent(percents);
+    console.log(percents);
+  }
   useEffect(() => {
     dispatch(fetchQuiz());
     if (countdown <= 0) {
@@ -34,7 +56,7 @@ function Quiz() {
   const selectedQuiz = useMemo(() => quiz?.[category], [quiz, category]);
   return (
     <div className="Quiz app">
-      <Help />
+      <Help publicDecide={publicDecide} />
       <div className="content">
         <div className="infos">
           <div className="info">
@@ -54,7 +76,7 @@ function Quiz() {
           </div>
           {selectedQuiz &&
             selectedQuiz[questionCount].answers.map(
-              (answer: { text: string; isCorrect: boolean }) => {
+              (answer: { text: string; isCorrect: boolean }, index) => {
                 return (
                   <button
                     key={answer.text}
@@ -77,6 +99,7 @@ function Quiz() {
                     }}
                   >
                     {answer.text}
+                    {publicPercent[index]}
                   </button>
                 );
               }

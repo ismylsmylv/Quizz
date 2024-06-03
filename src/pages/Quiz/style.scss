@@ -88,6 +88,9 @@
 
             .btns {}
 
+
+            button:hover {}
+
             button {
                 width: 100%;
                 border: none;
@@ -105,10 +108,14 @@
                 color: #31304D;
                 transition: 200ms linear;
                 border: 1px solid transparent;
-
+                // background: linear-gradient(to right, black 50%, white 50%);
+                // background-size: 200% 100%;
+                // background-position: right bottom;
+                // transition: all .5s ease-out;
 
                 &:hover {
                     background-color: #DDD9D6;
+                    // background-position: left bottom;
                 }
             }
 

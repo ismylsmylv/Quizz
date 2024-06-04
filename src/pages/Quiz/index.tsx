@@ -9,7 +9,7 @@ import "./style.scss";
 function Quiz() {
   const [countdown, setCountdown] = useState(100);
   const [questionCount, setQuestionCount] = useState(0);
-  const [publicPercent, setpublicPercent] = useState([]);
+  const [helpPercent, setHelpPercent] = useState([]);
   // const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
   const navigate = useNavigate();
   const { category } = useParams();
@@ -51,11 +51,24 @@ function Quiz() {
 
     return result;
   }
-
+  function shuffle100(arr) {
+    const index100 = arr.indexOf(100);
+    if (index100 !== -1) {
+      const randomIndex = Math.floor(Math.random() * arr.length);
+      [arr[index100], arr[randomIndex]] = [arr[randomIndex], arr[index100]];
+    }
+    return arr;
+  }
   function publicDecide() {
     const percents = generateRandomNumbersSummingTo100(4);
     shuffle(percents);
-    setpublicPercent(percents);
+    setHelpPercent(percents);
+    console.log(percents);
+  }
+  function phoneDecide() {
+    const percents = [0, 100, 0, 0];
+    shuffle100(percents);
+    setHelpPercent(percents);
     console.log(percents);
   }
   useEffect(() => {
@@ -74,7 +87,7 @@ function Quiz() {
   const selectedQuiz = useMemo(() => quiz?.[category], [quiz, category]);
   return (
     <div className="Quiz app">
-      <Help publicDecide={publicDecide} />
+      <Help publicDecide={publicDecide} phoneDecide={phoneDecide} />
       <div className="content">
         <div className="infos">
           <div className="info">
@@ -98,7 +111,11 @@ function Quiz() {
                 return (
                   <button
                     key={answer.text}
-                    style={{}}
+                    style={
+                      {
+                        // backgroundColor: `#4bf542${helpPercent?.[index] / 100}`,
+                      }
+                    }
                     className={
                       // countdown <= 5 && countdown > 1 && answer.isCorrect
                       //   ? "answer correct"
@@ -117,11 +134,19 @@ function Quiz() {
                       dispatch(selectAnswer(answer));
                     }}
                   >
-                    <div className="text"> {answer.text}</div>
-                    {/* {publicPercent[index]} */}
+                    <div
+                      className="text"
+                      style={{
+                        color: helpPercent[index] == 100 ? "white" : "#31304D",
+                      }}
+                    >
+                      {" "}
+                      {answer.text}
+                    </div>
+                    {/* {helpPercent[index]} */}
                     <div
                       className="answerOverlay"
-                      style={{ opacity: publicPercent[index] / 100 }}
+                      style={{ opacity: helpPercent[index] / 100 }}
                     ></div>
                   </button>
                 );
@@ -132,7 +157,7 @@ function Quiz() {
             className="next"
             onClick={() => {
               dispatch(addAnswer());
-              setpublicPercent([]);
+              setHelpPercent([]);
 
               if (questionCount < 9) {
                 // sethasAnswerSelected(false);

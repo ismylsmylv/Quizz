@@ -113,6 +113,7 @@
                 // background-position: right bottom;
                 // transition: all .5s ease-out;
                 position: relative;
+                height: 60px;
 
                 &:hover {
                     background-color: #DDD9D6;
@@ -129,8 +130,17 @@
                     background-color: green;
                     transition: 200ms linear;
                     opacity: 0;
+                    z-index: 400;
                 }
 
+                .text {
+                    position: absolute;
+                    top: 35%;
+                    width: 100%;
+                    width: fit-content;
+                    text-align: center;
+                    z-index: 500;
+                }
             }
 
             .next {

@@ -6,7 +6,7 @@ import { selectHelp, selectedHelp } from "../../redux/slice";
 import { useDispatch, useSelector } from "react-redux";
 type Props = {};
 
-function Help({ publicDecide, phoneDecide }: Props) {
+function Help({ publicDecide, phoneDecide, eliminate }: Props) {
   const [helpType, sethelpType] = useState("");
   const dispatch = useDispatch();
   const prevHelp = useSelector((state) => state.quiz.prevHelp);
@@ -43,7 +43,13 @@ function Help({ publicDecide, phoneDecide }: Props) {
                 sethelpType("");
               }}
               onClick={() => {
-                help.value == "people" ? publicDecide() : phoneDecide();
+                help.value == "people"
+                  ? publicDecide()
+                  : help.value == "call"
+                  ? phoneDecide()
+                  : help.value == "half"
+                  ? eliminate()
+                  : null;
                 //  : console.log(help);
                 dispatch(selectHelp(help.value));
                 dispatch(selectedHelp(help.value));

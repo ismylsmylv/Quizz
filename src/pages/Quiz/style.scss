@@ -141,6 +141,10 @@
                     text-align: center;
                     z-index: 500;
                 }
+
+                &:disabled {
+                    opacity: 0.4;
+                }
             }
 
             .next {

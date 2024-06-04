@@ -12,6 +12,7 @@ function Quiz() {
   const [helpPercent, setHelpPercent] = useState([]);
   // const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
   const navigate = useNavigate();
+  const [state, setstate] = useState();
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
   const selectedAnswer: { text: string } = useSelector(
@@ -71,6 +72,9 @@ function Quiz() {
     setHelpPercent(percents);
     console.log(percents);
   }
+  function eliminate() {
+    console.log("halfed");
+  }
   useEffect(() => {
     dispatch(fetchQuiz());
     if (countdown <= 0) {
@@ -87,7 +91,11 @@ function Quiz() {
   const selectedQuiz = useMemo(() => quiz?.[category], [quiz, category]);
   return (
     <div className="Quiz app">
-      <Help publicDecide={publicDecide} phoneDecide={phoneDecide} />
+      <Help
+        publicDecide={publicDecide}
+        phoneDecide={phoneDecide}
+        eliminate={eliminate}
+      />
       <div className="content">
         <div className="infos">
           <div className="info">
@@ -110,6 +118,7 @@ function Quiz() {
               (answer: { text: string; isCorrect: boolean }, index) => {
                 return (
                   <button
+                    disabled={!answer.isCorrect}
                     key={answer.text}
                     style={
                       {

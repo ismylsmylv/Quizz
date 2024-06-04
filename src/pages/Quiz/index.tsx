@@ -18,7 +18,7 @@ function Quiz() {
     (state: RootState | { text: string } | any) => state.quiz.selectedAnswer
   );
   const dispatch = useDispatch() as AppDispatch;
-  function shuffle(array: number[]) {
+  function shuffle(array) {
     let currentIndex = array.length;
 
     // While there remain elements to shuffle...
@@ -34,8 +34,26 @@ function Quiz() {
       ];
     }
   }
+
+  function generateRandomNumbersSummingTo100(count) {
+    // Generate (count - 1) random numbers between 0 and 100
+    const numbers = Array.from({ length: count - 1 }, () => Math.random());
+
+    // Add 0 and 1 to the array and sort it
+    numbers.push(0, 1);
+    numbers.sort((a, b) => a - b);
+
+    // Calculate the differences between successive numbers and multiply by 100
+    const result = [];
+    for (let i = 1; i < numbers.length; i++) {
+      result.push(Math.round((numbers[i] - numbers[i - 1]) * 100));
+    }
+
+    return result;
+  }
+
   function publicDecide() {
-    const percents = [40, 30, 20, 10];
+    const percents = generateRandomNumbersSummingTo100(4);
     shuffle(percents);
     setpublicPercent(percents);
     console.log(percents);
@@ -80,6 +98,7 @@ function Quiz() {
                 return (
                   <button
                     key={answer.text}
+                    style={{}}
                     className={
                       // countdown <= 5 && countdown > 1 && answer.isCorrect
                       //   ? "answer correct"
@@ -98,8 +117,12 @@ function Quiz() {
                       dispatch(selectAnswer(answer));
                     }}
                   >
-                    {answer.text}
-                    {publicPercent[index]}
+                    <div className="text"> {answer.text}</div>
+                    {/* {publicPercent[index]} */}
+                    <div
+                      className="answerOverlay"
+                      style={{ opacity: publicPercent[index] / 100 }}
+                    ></div>
                   </button>
                 );
               }
@@ -109,6 +132,7 @@ function Quiz() {
             className="next"
             onClick={() => {
               dispatch(addAnswer());
+              setpublicPercent([]);
 
               if (questionCount < 9) {
                 // sethasAnswerSelected(false);

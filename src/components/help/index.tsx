@@ -4,12 +4,19 @@ import "./style.scss";
 import { useState } from "react";
 import { selectHelp, selectedHelp } from "../../redux/slice";
 import { useDispatch, useSelector } from "react-redux";
-type Props = {};
-
+type Props = {
+  publicDecide: never;
+  phoneDecide: never;
+  eliminate: never;
+};
+interface State {
+  quiz: State;
+  prevHelp: object[];
+}
 function Help({ publicDecide, phoneDecide, eliminate }: Props) {
   const [helpType, sethelpType] = useState("");
   const dispatch = useDispatch();
-  const prevHelp = useSelector((state) => state.quiz.prevHelp);
+  const prevHelp = useSelector((state: State) => state.quiz.prevHelp);
   const helps = [
     {
       value: "half",

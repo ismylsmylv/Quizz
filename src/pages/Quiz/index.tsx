@@ -7,19 +7,18 @@ import { AppDispatch, RootState } from "../../redux/store";
 import "./style.scss";
 
 function Quiz() {
-  const [countdown, setCountdown] = useState(100);
+  const [countdown, setCountdown] = useState(100 as number);
   const [questionCount, setQuestionCount] = useState(0);
   const [helpPercent, setHelpPercent] = useState([]);
   // const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
   const navigate = useNavigate();
-  const [state, setstate] = useState();
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
   const selectedAnswer: { text: string } = useSelector(
     (state: RootState | { text: string } | any) => state.quiz.selectedAnswer
   );
   const dispatch = useDispatch() as AppDispatch;
-  function shuffle(array) {
+  function shuffle(array: number[]) {
     let currentIndex = array.length;
 
     // While there remain elements to shuffle...
@@ -36,7 +35,7 @@ function Quiz() {
     }
   }
 
-  function generateRandomNumbersSummingTo100(count) {
+  function generateRandomNumbersSummingTo100(count: number) {
     // Generate (count - 1) random numbers between 0 and 100
     const numbers = Array.from({ length: count - 1 }, () => Math.random());
 
@@ -52,7 +51,7 @@ function Quiz() {
 
     return result;
   }
-  function shuffle100(arr) {
+  function shuffle100(arr: number[]) {
     const index100 = arr.indexOf(100);
     if (index100 !== -1) {
       const randomIndex = Math.floor(Math.random() * arr.length);
@@ -62,14 +61,14 @@ function Quiz() {
   }
   function publicDecide() {
     const percents = generateRandomNumbersSummingTo100(4);
-    shuffle(percents);
-    setHelpPercent(percents);
+    shuffle(percents as number[]);
+    setHelpPercent(percents as never[]);
     console.log(percents);
   }
   function phoneDecide() {
     const percents = [0, 100, 0, 0];
     shuffle100(percents);
-    setHelpPercent(percents);
+    setHelpPercent(percents as never[]);
     console.log(percents);
   }
   function eliminate() {
@@ -88,7 +87,7 @@ function Quiz() {
     return () => clearInterval(countdownInterval);
   }, [dispatch, countdown]);
 
-  const selectedQuiz = useMemo(() => quiz?.[category], [quiz, category]);
+  const selectedQuiz = useMemo(() => quiz?.[category as any], [quiz, category]);
   return (
     <div className="Quiz app">
       <Help
@@ -115,7 +114,7 @@ function Quiz() {
           </div>
           {selectedQuiz &&
             selectedQuiz[questionCount].answers.map(
-              (answer: { text: string; isCorrect: boolean }, index) => {
+              (answer: { text: string; isCorrect: boolean }, index: number) => {
                 return (
                   <button
                     disabled={!answer.isCorrect}

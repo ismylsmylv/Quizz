@@ -10,6 +10,7 @@ function Quiz() {
   const [countdown, setCountdown] = useState(100 as number);
   const [questionCount, setQuestionCount] = useState(0);
   const [helpPercent, setHelpPercent] = useState([]);
+  const [halfCount, sethalfCount] = useState();
   // const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
   const navigate = useNavigate();
   const { category } = useParams();
@@ -117,7 +118,7 @@ function Quiz() {
               (answer: { text: string; isCorrect: boolean }, index: number) => {
                 return (
                   <button
-                    disabled={!answer.isCorrect}
+                    // disabled={!answer.isCorrect}
                     key={answer.text}
                     style={
                       {

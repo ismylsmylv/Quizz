@@ -5,7 +5,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { IoIosCloseCircle } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { RootState } from "../../redux/store";
-import { clearAnswers, clearSelectAnswer } from "../../redux/slice";
+import {
+  clearAnswers,
+  clearHelp,
+  clearSelectAnswer,
+  selectedHelp,
+} from "../../redux/slice";
 type Props = {};
 
 function Result({}: Props) {
@@ -50,6 +55,7 @@ function Result({}: Props) {
             onClick={() => {
               dispatch(clearAnswers());
               dispatch(clearSelectAnswer());
+              dispatch(clearHelp());
               navigate(`/quiz/${category}`);
             }}
           >

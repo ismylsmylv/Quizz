@@ -45,6 +45,9 @@ export const quizSlice = createSlice({
     selectedHelp: (state, action: PayloadAction<string>) => {
       state.prevHelp = [...state.prevHelp, action.payload];
     },
+    clearHelp: (state) => {
+      state.prevHelp = [];
+    },
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
@@ -65,6 +68,7 @@ export const {
   clearSelectAnswer,
   selectHelp,
   selectedHelp,
+  clearHelp,
 } = quizSlice.actions;
 
 export default quizSlice.reducer;

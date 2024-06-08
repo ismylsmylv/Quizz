@@ -1,2 +1,2 @@
-2. keep prev selected answers
-3 return home
+1. return home
+2. add half help

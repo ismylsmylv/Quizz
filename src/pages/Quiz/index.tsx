@@ -134,7 +134,7 @@ function Quiz() {
                       //     selectedAnswer.text == answer.text
                       //   ? "answer incorrect"
                       //   :
-                      selectedAnswer.text == answer.text
+                      selectedAnswer.find((elem) => elem.text == answer.text)
                         ? "answer active"
                         : "answer"
                     }

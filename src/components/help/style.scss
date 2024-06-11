@@ -1,37 +1,49 @@
-.Help {
-
+.helpCont {
+    width: 100%;
     margin-bottom: 30px;
 
-    .helps {
+    .Help {
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 20px;
+        justify-content: space-between;
+        width: 100%;
 
-        .help {
-            padding: 15px;
-            background-color: white;
-            border: 2px solid #31304D;
-            border-radius: 50%;
+        .back {
+            cursor: pointer;
+        }
+
+        .helps {
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 200ms linear;
-            cursor: pointer;
+            gap: 20px;
 
-            &:hover {
-                background-color: #31304D;
+            .help {
+                padding: 15px;
+                background-color: white;
+                border: 2px solid #31304D;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 200ms linear;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #31304D;
 
 
-                svg {
-                    color: white !important;
+                    svg {
+                        color: white !important;
+                    }
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+                    opacity: 0.5;
                 }
             }
 
-            &:disabled {
-                cursor: not-allowed;
-                opacity: 0.5;
-            }
         }
 
     }

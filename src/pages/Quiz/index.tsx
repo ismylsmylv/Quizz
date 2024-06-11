@@ -1,20 +1,23 @@
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Help from "../../components/help";
 import { addAnswer, fetchQuiz, selectAnswer } from "../../redux/slice";
 import { AppDispatch, RootState } from "../../redux/store";
 import "./style.scss";
 
 function Quiz() {
+  const location = useLocation();
+
   window.onbeforeunload = function () {
-    return "Dude, are you sure you want to leave? Think of the kittens!";
+    return "Data will be lost if you leave the page, are you sure?";
   };
+  if (location.pathname.substr(1, 4) == "quiz") {
+    window.onbeforeunload;
+  }
   const [countdown, setCountdown] = useState(100 as number);
   const [questionCount, setQuestionCount] = useState(0);
   const [helpPercent, setHelpPercent] = useState([]);
-  const [halfCount, sethalfCount] = useState();
-  // const [hasAnswerSelected, sethasAnswerSelected] = useState(false);
   const navigate = useNavigate();
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
@@ -121,28 +124,13 @@ function Quiz() {
               (answer: { text: string; isCorrect: boolean }, index: number) => {
                 return (
                   <button
-                    // disabled={!answer.isCorrect}
                     key={answer.text}
-                    style={
-                      {
-                        // backgroundColor: `#4bf542${helpPercent?.[index] / 100}`,
-                      }
-                    }
                     className={
-                      // countdown <= 5 && countdown > 1 && answer.isCorrect
-                      //   ? "answer correct"
-                      //   : countdown <= 3 &&
-                      //     countdown > 0 &&
-                      //     !answer.isCorrect &&
-                      //     selectedAnswer.text == answer.text
-                      //   ? "answer incorrect"
-                      //   :
                       selectedAnswer.find((elem) => elem.text == answer.text)
                         ? "answer active"
                         : "answer"
                     }
                     onClick={() => {
-                      // sethasAnswerSelected(true);
                       dispatch(selectAnswer(answer));
                     }}
                   >
@@ -152,10 +140,8 @@ function Quiz() {
                         color: helpPercent[index] == 100 ? "white" : "#31304D",
                       }}
                     >
-                      {" "}
                       {answer.text}
                     </div>
-                    {/* {helpPercent[index]} */}
                     <div
                       className="answerOverlay"
                       style={{ opacity: helpPercent[index] / 100 }}
@@ -165,14 +151,12 @@ function Quiz() {
               }
             )}
           <button
-            // disabled={!hasAnswerSelected}
             className="next"
             onClick={() => {
               dispatch(addAnswer());
               setHelpPercent([]);
 
               if (questionCount < 9) {
-                // sethasAnswerSelected(false);
                 setQuestionCount(questionCount + 1);
               } else {
                 navigate(`/result/${category}`);

@@ -7,6 +7,9 @@ import { AppDispatch, RootState } from "../../redux/store";
 import "./style.scss";
 
 function Quiz() {
+  window.onbeforeunload = function () {
+    return "Dude, are you sure you want to leave? Think of the kittens!";
+  };
   const [countdown, setCountdown] = useState(100 as number);
   const [questionCount, setQuestionCount] = useState(0);
   const [helpPercent, setHelpPercent] = useState([]);

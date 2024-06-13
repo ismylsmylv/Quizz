@@ -21,6 +21,7 @@ function Quiz() {
   const navigate = useNavigate();
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
+  const [halfIndex, sethalfIndex] = useState(0);
   const selectedAnswer: { text: string } = useSelector(
     (state: RootState | { text: string } | any) => state.quiz.selectedAnswer
   );
@@ -126,13 +127,16 @@ function Quiz() {
                   <button
                     key={answer.text}
                     className={
-                      selectedAnswer.find((elem) => elem.text == answer.text)
+                      selectedAnswer.find(
+                        (elem: { text: string }) => elem.text == answer.text
+                      )
                         ? "answer active"
                         : "answer"
                     }
                     onClick={() => {
                       dispatch(selectAnswer(answer));
                     }}
+                    disabled={halfIndex}
                   >
                     <div
                       className="text"

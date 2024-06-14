@@ -18,12 +18,17 @@ function Quiz() {
   const [countdown, setCountdown] = useState(100 as number);
   const [questionCount, setQuestionCount] = useState(0);
   const [helpPercent, setHelpPercent] = useState([]);
+  const [correctIndex, setCorrectIndex] = useState(undefined);
   const navigate = useNavigate();
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
   const [halfIndex, sethalfIndex] = useState(0);
   const selectedAnswer: { text: string } = useSelector(
     (state: RootState | { text: string } | any) => state.quiz.selectedAnswer
+  );
+
+  const help: { text: string } = useSelector(
+    (state: RootState | { text: string } | any) => state.quiz.help
   );
   const dispatch = useDispatch() as AppDispatch;
   function shuffle(array: number[]) {
@@ -82,7 +87,14 @@ function Quiz() {
   function eliminate() {
     console.log("halfed");
   }
+  const selectedQuiz = useMemo(() => quiz?.[category as any], [quiz, category]);
   useEffect(() => {
+    if (selectedQuiz && selectedQuiz[questionCount]) {
+      const correctAnswerIndex = selectedQuiz[questionCount].answers.findIndex(
+        (answer) => answer.isCorrect
+      );
+      setCorrectIndex(correctAnswerIndex);
+    }
     dispatch(fetchQuiz());
     if (countdown <= 0) {
       navigate(`/result/${category}`);
@@ -93,9 +105,8 @@ function Quiz() {
       );
     }, 1000);
     return () => clearInterval(countdownInterval);
-  }, [dispatch, countdown]);
+  }, [dispatch, countdown, selectedQuiz, questionCount]);
 
-  const selectedQuiz = useMemo(() => quiz?.[category as any], [quiz, category]);
   return (
     <div className="Quiz app">
       <Help
@@ -136,7 +147,7 @@ function Quiz() {
                     onClick={() => {
                       dispatch(selectAnswer(answer));
                     }}
-                    disabled={halfIndex}
+                    disabled={correctIndex == index}
                   >
                     <div
                       className="text"

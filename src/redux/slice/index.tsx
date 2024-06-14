@@ -43,6 +43,7 @@ export const quizSlice = createSlice({
       state.help = action.payload;
     },
     selectedHelp: (state, action: PayloadAction<string>) => {
+      state.help = "";
       state.prevHelp = [...state.prevHelp, action.payload];
     },
     clearHelp: (state) => {

@@ -10,17 +10,19 @@ export const fetchQuiz = createAsyncThunk("users/fetchByIdStatus", async () => {
 export interface QuizState {
   quiz: object[];
   answers: object[];
-  selectedAnswer: object[];
+  selectedAnswer: object;
   help: string;
   prevHelp: string[];
+  selectedPrevAnswer: object[];
 }
 
 const initialState: QuizState = {
   quiz: [],
   answers: [],
-  selectedAnswer: [],
+  selectedAnswer: {},
   help: "",
   prevHelp: [],
+  selectedPrevAnswer: [],
 };
 
 export const quizSlice = createSlice({
@@ -28,7 +30,7 @@ export const quizSlice = createSlice({
   initialState,
   reducers: {
     selectAnswer: (state, action: PayloadAction<object>) => {
-      state.selectedAnswer = [...state.selectedAnswer, action.payload];
+      state.selectedAnswer = action.payload;
     },
     addAnswer: (state) => {
       state.answers = [...state.answers, state.selectedAnswer];

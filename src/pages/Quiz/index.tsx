@@ -26,6 +26,9 @@ function Quiz() {
   const selectedAnswer: { text: string } = useSelector(
     (state: RootState | { text: string } | any) => state.quiz.selectedAnswer
   );
+  const answers: { text: string } = useSelector(
+    (state: RootState | { text: string } | any) => state.quiz.answers
+  );
 
   const help: { text: string } = useSelector(
     (state: RootState | { text: string } | any) => state.quiz.help
@@ -91,7 +94,7 @@ function Quiz() {
   useEffect(() => {
     if (selectedQuiz && selectedQuiz[questionCount]) {
       const correctAnswerIndex = selectedQuiz[questionCount].answers.findIndex(
-        (answer) => answer.isCorrect
+        (answer: { isCorrect: boolean }) => answer.isCorrect
       );
       setCorrectIndex(correctAnswerIndex);
     }
@@ -138,16 +141,17 @@ function Quiz() {
                   <button
                     key={answer.text}
                     className={
-                      selectedAnswer.find(
-                        (elem: { text: string }) => elem.text == answer.text
-                      )
+                      selectedAnswer.text == answer.text
+                        ? "answer active"
+                        : answers.find((elem) => elem.text == answer.text)
                         ? "answer active"
                         : "answer"
                     }
                     onClick={() => {
                       dispatch(selectAnswer(answer));
+                      console.log(help);
                     }}
-                    disabled={correctIndex == index}
+                    // disabled={correctIndex == index}
                   >
                     <div
                       className="text"

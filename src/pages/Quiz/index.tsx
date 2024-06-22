@@ -3,8 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Help from "../../components/help";
 import { addAnswer, fetchQuiz, selectAnswer } from "../../redux/slice";
-import { AppDispatch, RootState } from "../../redux/store";
+import { AppDispatch } from "../../redux/store";
 import "./style.scss";
+interface QuizState {
+  selectedAnswer: { text: string };
+  answers: { text: string }[];
+  help: { text: string };
+  quiz: QuizType;
+}
+interface QuizType {
+  id: number;
+  title: string;
+  questions: string[];
+}
+interface RootState {
+  quiz: QuizState;
+}
 
 function Quiz() {
   const location = useLocation();
@@ -22,19 +36,17 @@ function Quiz() {
 
   const navigate = useNavigate();
   const { category } = useParams();
-  const quiz = useSelector((state: RootState) => state.quiz.quiz);
+  const quiz: QuizType = useSelector((state: RootState) => state.quiz.quiz);
   const selectedAnswer: { text: string } = useSelector(
-    (state: RootState | { text: string } | unknown) => state.quiz.selectedAnswer
+    (state: RootState) => state.quiz.selectedAnswer
   );
-  const answers: {
-    find(arg0: (elem: never) => boolean): unknown;
-    text: string;
-  } = useSelector(
-    (state: RootState | { text: string } | unknown) => state.quiz.answers
+
+  const answers: { text: string }[] = useSelector(
+    (state: RootState) => state.quiz.answers
   );
 
   const help: { text: string } = useSelector(
-    (state: RootState | { text: string } | unknown) => state.quiz.help
+    (state: RootState) => state.quiz.help
   );
 
   const dispatch = useDispatch() as AppDispatch;

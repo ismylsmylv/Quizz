@@ -170,18 +170,14 @@ function Quiz() {
                   <button
                     key={answer.text}
                     className={
-                      selectedAnswer.text === answer.text
-                        ? "answer active"
-                        : answers.find(
-                            (elem: { text: string }) =>
-                              elem.text === answer.text
-                          )
+                      selectedAnswer.text === answer.text ||
+                      answers.some((elem) => elem.text === answer.text)
                         ? "answer active"
                         : "answer"
                     }
                     onClick={() => {
                       dispatch(selectAnswer(answer));
-                      console.log(help);
+                      // console.log(answers);
                     }}
                     // disabled={correctIndex !== index}
                     style={{
@@ -204,7 +200,6 @@ function Quiz() {
               dispatch(addAnswer());
               setHelpPercent([]);
               setEliminatedIndexes([]);
-
               if (questionCount < 9) {
                 setQuestionCount(questionCount + 1);
               } else {
@@ -218,7 +213,7 @@ function Quiz() {
           <button
             className="previous"
             onClick={() => {
-              dispatch(addAnswer());
+              // dispatch(addAnswer());
               if (questionCount > 0) {
                 setQuestionCount(questionCount - 1);
               }

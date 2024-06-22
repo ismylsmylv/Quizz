@@ -130,13 +130,13 @@ function Quiz() {
     }
 
     const countdownInterval = setInterval(() => {
-      setCountdown(
-        (prevCountdown: number) => prevCountdown > 0 && prevCountdown - 1
+      setCountdown((prevCountdown: number) =>
+        prevCountdown > 0 ? prevCountdown - 1 : 0
       );
     }, 1000);
 
     return () => clearInterval(countdownInterval);
-  }, [dispatch, countdown, selectedQuiz, questionCount]);
+  }, [questionCount, category, navigate, countdown]);
 
   return (
     <div className="Quiz app">
@@ -192,7 +192,7 @@ function Quiz() {
                     <div className="text">{answer.text}</div>
                     <div
                       className="answerOverlay"
-                      style={{ opacity: helpPercent[index] / 100 }}
+                      style={{ opacity: helpPercent[index] / 100 || 0 }}
                     ></div>
                   </button>
                 );

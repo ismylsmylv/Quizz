@@ -5,10 +5,8 @@ import Help from "../../components/help";
 import { addAnswer, fetchQuiz, selectAnswer } from "../../redux/slice";
 import { AppDispatch, RootState } from "../../redux/store";
 import "./style.scss";
-
 function Quiz() {
   const location = useLocation();
-
   window.onbeforeunload = function () {
     return "Data will be lost if you leave the page, are you sure?";
   };
@@ -22,28 +20,25 @@ function Quiz() {
   const navigate = useNavigate();
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
-  const [halfIndex, sethalfIndex] = useState(0);
   const selectedAnswer: { text: string } = useSelector(
-    (state: RootState | { text: string } | any) => state.quiz.selectedAnswer
+    (state: RootState | { text: string } | unknown) => state.quiz.selectedAnswer
   );
-  const answers: { text: string } = useSelector(
-    (state: RootState | { text: string } | any) => state.quiz.answers
+  const answers: {
+    find(arg0: (elem: never) => boolean): unknown;
+    text: string;
+  } = useSelector(
+    (state: RootState | { text: string } | unknown) => state.quiz.answers
   );
 
   const help: { text: string } = useSelector(
-    (state: RootState | { text: string } | any) => state.quiz.help
+    (state: RootState | { text: string } | unknown) => state.quiz.help
   );
   const dispatch = useDispatch() as AppDispatch;
   function shuffle(array: number[]) {
     let currentIndex = array.length;
-
-    // While there remain elements to shuffle...
     while (currentIndex != 0) {
-      // Pick a remaining element...
       const randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-
-      // And swap it with the current element.
       [array[currentIndex], array[randomIndex]] = [
         array[randomIndex],
         array[currentIndex],
@@ -52,19 +47,13 @@ function Quiz() {
   }
 
   function generateRandomNumbersSummingTo100(count: number) {
-    // Generate (count - 1) random numbers between 0 and 100
     const numbers = Array.from({ length: count - 1 }, () => Math.random());
-
-    // Add 0 and 1 to the array and sort it
     numbers.push(0, 1);
     numbers.sort((a, b) => a - b);
-
-    // Calculate the differences between successive numbers and multiply by 100
     const result = [];
     for (let i = 1; i < numbers.length; i++) {
       result.push(Math.round((numbers[i] - numbers[i - 1]) * 100));
     }
-
     return result;
   }
   function shuffle100(arr: number[]) {
@@ -90,13 +79,17 @@ function Quiz() {
   function eliminate() {
     console.log("halfed");
   }
-  const selectedQuiz = useMemo(() => quiz?.[category as any], [quiz, category]);
+  const selectedQuiz = useMemo(
+    () => quiz?.[category as string[]],
+    [quiz, category]
+  );
   useEffect(() => {
     if (selectedQuiz && selectedQuiz[questionCount]) {
       const correctAnswerIndex = selectedQuiz[questionCount].answers.findIndex(
         (answer: { isCorrect: boolean }) => answer.isCorrect
       );
       setCorrectIndex(correctAnswerIndex);
+      // console.log(correctIndex);
     }
     dispatch(fetchQuiz());
     if (countdown <= 0) {
@@ -113,9 +106,9 @@ function Quiz() {
   return (
     <div className="Quiz app">
       <Help
-        publicDecide={publicDecide}
-        phoneDecide={phoneDecide}
-        eliminate={eliminate}
+        publicDecide={publicDecide as never}
+        phoneDecide={phoneDecide as never}
+        eliminate={eliminate as never}
       />
       <div className="content">
         <div className="infos">
@@ -143,7 +136,9 @@ function Quiz() {
                     className={
                       selectedAnswer.text == answer.text
                         ? "answer active"
-                        : answers.find((elem) => elem.text == answer.text)
+                        : answers.find(
+                            (elem: { text: string }) => elem.text == answer.text
+                          )
                         ? "answer active"
                         : "answer"
                     }
@@ -151,7 +146,7 @@ function Quiz() {
                       dispatch(selectAnswer(answer));
                       console.log(help);
                     }}
-                    // disabled={correctIndex == index}
+                    disabled={correctIndex != index}
                   >
                     <div
                       className="text"

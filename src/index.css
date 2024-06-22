@@ -9,7 +9,7 @@ button {
   cursor: pointer;
 }
 .app {
-  min-height: 95vh;
+  height: 95vh;
   max-width: 480px;
   margin: 0 auto;
   border-radius: 20px;

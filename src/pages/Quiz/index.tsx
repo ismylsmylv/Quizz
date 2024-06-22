@@ -5,18 +5,21 @@ import Help from "../../components/help";
 import { addAnswer, fetchQuiz, selectAnswer } from "../../redux/slice";
 import { AppDispatch, RootState } from "../../redux/store";
 import "./style.scss";
+
 function Quiz() {
   const location = useLocation();
   window.onbeforeunload = function () {
     return "Data will be lost if you leave the page, are you sure?";
   };
-  if (location.pathname.substr(1, 4) == "quiz") {
+  if (location.pathname.substr(1, 4) === "quiz") {
     window.onbeforeunload;
   }
+
   const [countdown, setCountdown] = useState(100 as number);
   const [questionCount, setQuestionCount] = useState(0);
   const [helpPercent, setHelpPercent] = useState([]);
-  const [correctIndex, setCorrectIndex] = useState(undefined);
+  const [eliminatedIndexes, setEliminatedIndexes] = useState<number[]>([]);
+
   const navigate = useNavigate();
   const { category } = useParams();
   const quiz = useSelector((state: RootState) => state.quiz.quiz);
@@ -33,10 +36,12 @@ function Quiz() {
   const help: { text: string } = useSelector(
     (state: RootState | { text: string } | unknown) => state.quiz.help
   );
+
   const dispatch = useDispatch() as AppDispatch;
+
   function shuffle(array: number[]) {
     let currentIndex = array.length;
-    while (currentIndex != 0) {
+    while (currentIndex !== 0) {
       const randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
       [array[currentIndex], array[randomIndex]] = [
@@ -56,6 +61,7 @@ function Quiz() {
     }
     return result;
   }
+
   function shuffle100(arr: number[]) {
     const index100 = arr.indexOf(100);
     if (index100 !== -1) {
@@ -64,42 +70,59 @@ function Quiz() {
     }
     return arr;
   }
+
   function publicDecide() {
     const percents = generateRandomNumbersSummingTo100(4);
     shuffle(percents as number[]);
     setHelpPercent(percents as never[]);
     console.log(percents);
   }
+
   function phoneDecide() {
     const percents = [0, 100, 0, 0];
     shuffle100(percents);
     setHelpPercent(percents as never[]);
     console.log(percents);
   }
+
   function eliminate() {
-    console.log("halfed");
-  }
-  const selectedQuiz = useMemo(
-    () => quiz?.[category as string[]],
-    [quiz, category]
-  );
-  useEffect(() => {
     if (selectedQuiz && selectedQuiz[questionCount]) {
       const correctAnswerIndex = selectedQuiz[questionCount].answers.findIndex(
         (answer: { isCorrect: boolean }) => answer.isCorrect
       );
-      setCorrectIndex(correctAnswerIndex);
-      // console.log(correctIndex);
+
+      const incorrectIndexes = selectedQuiz[questionCount].answers
+        .map((answer: { isCorrect: boolean }, index: number) => ({
+          answer,
+          index,
+        }))
+        .filter(({ answer }) => !answer.isCorrect)
+        .map(({ index }) => index);
+
+      shuffle(incorrectIndexes);
+      const halfIndexes = [correctAnswerIndex, incorrectIndexes[0]];
+      setEliminatedIndexes(halfIndexes);
     }
+  }
+
+  const selectedQuiz = useMemo(
+    () => quiz?.[category as string[]],
+    [quiz, category]
+  );
+
+  useEffect(() => {
     dispatch(fetchQuiz());
+
     if (countdown <= 0) {
       navigate(`/result/${category}`);
     }
+
     const countdownInterval = setInterval(() => {
       setCountdown(
         (prevCountdown: number) => prevCountdown > 0 && prevCountdown - 1
       );
     }, 1000);
+
     return () => clearInterval(countdownInterval);
   }, [dispatch, countdown, selectedQuiz, questionCount]);
 
@@ -130,14 +153,16 @@ function Quiz() {
           {selectedQuiz &&
             selectedQuiz[questionCount].answers.map(
               (answer: { text: string; isCorrect: boolean }, index: number) => {
+                const isEliminated = eliminatedIndexes.includes(index);
                 return (
                   <button
                     key={answer.text}
                     className={
-                      selectedAnswer.text == answer.text
+                      selectedAnswer.text === answer.text
                         ? "answer active"
                         : answers.find(
-                            (elem: { text: string }) => elem.text == answer.text
+                            (elem: { text: string }) =>
+                              elem.text === answer.text
                           )
                         ? "answer active"
                         : "answer"
@@ -146,16 +171,13 @@ function Quiz() {
                       dispatch(selectAnswer(answer));
                       console.log(help);
                     }}
-                    disabled={correctIndex != index}
+                    // disabled={correctIndex !== index}
+                    style={{
+                      opacity: isEliminated ? "0" : "1",
+                      color: isEliminated ? "white" : "",
+                    }}
                   >
-                    <div
-                      className="text"
-                      style={{
-                        color: helpPercent[index] == 100 ? "white" : "#31304D",
-                      }}
-                    >
-                      {answer.text}
-                    </div>
+                    <div className="text">{answer.text}</div>
                     <div
                       className="answerOverlay"
                       style={{ opacity: helpPercent[index] / 100 }}
@@ -169,6 +191,7 @@ function Quiz() {
             onClick={() => {
               dispatch(addAnswer());
               setHelpPercent([]);
+              setEliminatedIndexes([]);
 
               if (questionCount < 9) {
                 setQuestionCount(questionCount + 1);
@@ -177,7 +200,7 @@ function Quiz() {
               }
             }}
           >
-            {questionCount == 9 ? "complete" : "next"}
+            {questionCount === 9 ? "complete" : "next"}
           </button>
 
           <button

@@ -145,6 +145,7 @@ function Quiz() {
         phoneDecide={phoneDecide as never}
         eliminate={eliminate as never}
       />
+      {JSON.stringify(answers)}
       <div className="content">
         <div className="infos">
           <div className="info">
@@ -170,8 +171,9 @@ function Quiz() {
                   <button
                     key={answer.text}
                     className={
-                      selectedAnswer.text === answer.text ||
-                      answers.some((elem) => elem.text === answer.text)
+                      selectedAnswer.text === answer.text
+                        ? "answer active"
+                        : answers.find((elem) => elem.text === answer.text)
                         ? "answer active"
                         : "answer"
                     }

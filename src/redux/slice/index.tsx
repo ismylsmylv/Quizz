@@ -30,7 +30,9 @@ export const quizSlice = createSlice({
   initialState,
   reducers: {
     selectAnswer: (state, action: PayloadAction<object>) => {
-      state.selectedAnswer = action.payload;
+      const selected = action.payload;
+
+      state.selectedAnswer;
     },
     addAnswer: (state) => {
       state.answers = [...state.answers, state.selectedAnswer];

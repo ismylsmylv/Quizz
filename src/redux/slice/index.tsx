@@ -30,12 +30,17 @@ export const quizSlice = createSlice({
   initialState,
   reducers: {
     selectAnswer: (state, action: PayloadAction<object>) => {
-      const selected = action.payload;
-
-      state.selectedAnswer;
+      const act = action.payload;
+      // state.answers = state.answers.filter((ans) => ans.text !== act.text);
+      state.selectedAnswer = act;
     },
-    addAnswer: (state) => {
-      state.answers = [...state.answers, state.selectedAnswer];
+    addAnswer: (state, action) => {
+      state.answers = [
+        ...state.answers.filter(
+          (answer) => answer?.text !== state.selectedAnswer.text
+        ),
+        state.selectedAnswer,
+      ];
     },
     clearAnswers: (state) => {
       state.answers = [];
